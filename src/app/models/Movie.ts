@@ -9,10 +9,15 @@ export interface Movie {
   popularity: 2038.963;
   poster_path: string;
   release_date: string;
+  revenue: number;
+  runtime: number;
+  status: string;
+  tagline: string;
   title: string;
   video: boolean;
   vote_average: number;
   vote_count: number;
+  genres: Genre[];
 }
 
 export interface MovieDto {
@@ -20,4 +25,9 @@ export interface MovieDto {
   results: Movie[];
   total_results: number;
   total_pages: number;
+}
+
+export interface Genre {
+  id: number;
+  name: string;
 }
