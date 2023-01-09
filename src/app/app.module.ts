@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
+import { CarouselModule } from 'primeng/carousel';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -16,6 +18,8 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
 import { ItemComponent } from './components/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
+import { GenresComponent } from './pages/genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,8 @@ import { MovieComponent } from './pages/movie/movie.component';
     ItemsBannerComponent,
     ItemComponent,
     MovieComponent,
+    VideoEmbedComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,8 @@ import { MovieComponent } from './pages/movie/movie.component';
     HttpClientModule,
     PaginatorModule,
     TabViewModule,
+    ImageModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

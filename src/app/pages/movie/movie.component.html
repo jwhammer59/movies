@@ -50,7 +50,61 @@
         </div>
       </div>
     </p-tabPanel>
-    <p-tabPanel header="Videos"> Content 2 </p-tabPanel>
-    <p-tabPanel header="Phones"> Content 3 </p-tabPanel>
+    <p-tabPanel header="Videos">
+      <div class="grid">
+        <ng-container *ngFor="let movieVideo of movieVideos">
+          <div class="col-12 md:col-4 lg:col-4">
+            <app-video-embed
+              [key]="movieVideo.key"
+              [site]="movieVideo.site"
+            ></app-video-embed>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Photos">
+      <div class="grid">
+        <ng-container *ngFor="let movieImage of movieImages?.backdrops">
+          <div class="col-12 md:col-4 lg:col-4">
+            <p-image
+              [src]="imageSizes.large + movieImage.file_path"
+              alt="Image"
+              width="100%"
+              [preview]="true"
+            ></p-image>
+          </div>
+        </ng-container>
+      </div>
+    </p-tabPanel>
   </p-tabView>
+  <div class="section-titles">
+    <h2>Actors</h2>
+    <p-carousel
+      *ngIf="movieCredits"
+      [value]="movieCredits.cast"
+      [numVisible]="5"
+    >
+      <ng-template let-actor pTemplate="item">
+        <div class="actor">
+          <img [src]="imageSizes.medium + actor.profile_path" alt="" />
+          <span>{{ actor.name }}</span>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  <div class="section-titles">
+    <h2>Similar Movies</h2>
+    <p-carousel
+      *ngIf="similarMovies"
+      [value]="similarMovies.results"
+      [numVisible]="5"
+    >
+      <ng-template let-similar pTemplate="item">
+        <div class="actor">
+          <img [src]="imageSizes.medium + similar.poster_path" alt="" />
+          <span>{{ similar.title }}</span>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
 </ng-container>
