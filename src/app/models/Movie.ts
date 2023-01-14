@@ -1,3 +1,5 @@
+import { Item } from './Item';
+
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -9,14 +11,13 @@ export interface Movie {
   popularity: 2038.963;
   poster_path: string;
   release_date: string;
-  revenue: number;
-  runtime: number;
-  status: string;
-  tagline: string;
   title: string;
   video: boolean;
   vote_average: number;
   vote_count: number;
+  revenue: number;
+  runtime: number;
+  status: string;
   genres: Genre[];
 }
 
@@ -61,3 +62,17 @@ export interface SimilarMovies {
     backdrop_path: string;
   }[];
 }
+
+export const mapMovieToItem = (movie: Movie): Item => {
+  return {
+    id: movie.id,
+    title: movie.title,
+    poster_path: movie.poster_path,
+    vote_average: movie.vote_average,
+    backdrop_path: movie.backdrop_path,
+    vote_count: movie.vote_count,
+    release_date: movie.release_date,
+    overview: movie.overview,
+    routePath: '/movie/' + movie.id,
+  };
+};

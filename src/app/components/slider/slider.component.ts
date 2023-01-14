@@ -8,6 +8,7 @@ import {
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/Movie';
 import { IMAGE_SIZES } from 'src/app/constants/image-sizes';
+import { Item } from 'src/app/models/Item';
 
 @Component({
   selector: 'app-slider',
@@ -21,7 +22,7 @@ import { IMAGE_SIZES } from 'src/app/constants/image-sizes';
   ],
 })
 export class SliderComponent implements OnInit {
-  @Input() items: Movie[] = [];
+  @Input() items: Item[] = [];
   @Input() isBanner: boolean = false;
 
   currentSlideIndex: number = 0;
